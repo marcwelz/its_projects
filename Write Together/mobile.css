@@ -1,0 +1,131 @@
+body {
+    background: linear-gradient(-45deg, #FFCCCC, #FFE5CC, #FFFFCC, #E5FFCC,
+    #CCFFCC, #CCFFE5, #CCFFFF, #CCE5FF,
+    #CCCCFF, #E5CCFF, #FFCCFF, #FFCCE5);
+	background-size: 600% 600%;
+    animation: gradient 60s ease infinite;
+    font-family: 'Spartan', sans-serif, Verdana, Helvetica, sans-serif;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.titel {
+    margin-top: 52%;
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 40px;
+    transform: scale(.9, 1.7);
+}
+
+.main {
+    margin-top: 3%;
+}
+
+.inputText {
+    width: 70%;
+    max-width: 200%;
+    padding: 3.5% 1%;
+    margin: 3% auto;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    box-sizing: border-box;
+    border: 3px solid #555;
+    outline: none;
+    margin-left: 15%;
+    margin-right:15%;
+  }
+  .mainCreateRoom {
+    color:white;
+    margin-left: 10%;
+    margin-right: 10%;
+    display:block;
+    background-color: #FF6666;
+
+  }
+.button {
+    width: 40%;
+    max-width: 200%;
+    font-family: 'Londrina Solid', cursive;
+    background-color: #FF9999; 
+    border: none;
+    color: white;
+    padding: 9px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 30%;
+    margin-right:30%;
+  }
+
+  .buttonCreate {
+    font-family: 'Londrina Solid', cursive;
+    background-color: #FF9999; 
+    border: none;
+    color: white;
+    padding: 9px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .buttonsubmit {
+    font-family: 'Londrina Solid', cursive;
+    background-color: #404040; 
+    border: none;
+    color: white;
+    padding: 9px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .copyright {
+      text-align: center;
+      font-size: 11px;
+      margin-bottom: 10%;
+  }
+
+  .lobbyPlayer {
+      text-align: center;
+      font-size: 20px;
+      font-family: 'Londrina Solid', cursive;
+  }
+
+  .playerTable {
+    width: 10%;
+    max-width: 100%;
+    font-size: 18px;
+      font-family: 'Londrina Solid', cursive;
+  }
+
+  .mainCreateRoomPlayers {
+    text-align: center;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 30px;
+    color:white;
+    margin-left: 30%;
+    margin-right: 30%;
+    display:block;
+    background-color: rgba(102, 179, 255, 0.7);
+    margin-bottom: 1%;
+  }
