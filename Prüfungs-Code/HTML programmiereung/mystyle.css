@@ -1,0 +1,145 @@
+
+
+body{
+	font-family: 'Ultra-Regular', Verdana, sans-serif;
+	font-size: 14px;
+
+	text-align:justify;
+}
+p{
+	text-transform:uppercase;
+	font-family:arial;
+	line-height:1.25;
+	letter-spacing:0.1em;
+	word-spacing:1em;
+	text-shadow: none;
+	font-style:italic;
+	font-weight:bold;
+}
+
+
+
+body aside nav a{
+	color:pink;
+	padding:10px;
+	background:rgb(0,0,200);
+	display:inline-block;
+}
+main a{
+	color:yellow;
+}
+
+a{
+	color: red;
+	text-decoration: none;
+}
+
+a:hover{
+	background:red;
+}
+a:visited{
+	lime;
+}/*
+body{
+	background-image:url(christmas-4645449_1920.jpg);
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-attachment:fixed;
+	padding:5vw;
+} */
+
+.kerze{
+	width:6vw;	 
+	display:none;
+}
+.kerze .flamme{
+	width:2vw;	
+	height:8vw;	
+	margin-left:2vw;
+	background:rgba(255,255,60,1);
+	border-top-left-radius:1vw 8vw;
+	border-top-right-radius:1vw 8vw;
+	border-bottom-left-radius:1vw 1vw;
+	border-bottom-right-radius:1vw 1vw;
+	box-shadow:0 0vw 1vw 0.8vw rgb(255,255,60);
+	animation-name:flackern;
+	animation-duration:2s;
+	animation-iteration-count:infinite;
+	animation-timing-function: ease-in;
+	transform-origin: 100% 100%;	
+	opacity:0.95;
+}
+.kerze .docht{
+	height:2vw;	
+	width:0.6vw;	
+	margin-left:2.7vw;
+	background:white;
+}
+.kerze .wachs{
+	width:6vw;
+	height:20vw;
+	background: linear-gradient(to right, #411 0%, #F11 20%,#FEE 12%,#F11 16%,  #F11 60%, #A00 100%);
+}
+
+.kerze .light{
+	position:relative;
+	top:1vw;
+	left:-0.5vw;
+	width:1vw;
+	height:0;
+	margin-left:2.7vw;
+	opacity:0.6;
+	animation-name:flackern2;
+	animation-duration:2s;
+	animation-timing-function: ease-in;
+	animation-iteration-count:infinite;
+}
+
+@keyframes flackern{
+	0%,100%{
+		box-shadow:0 -0.2vw 1.2vw 0.8vw rgb(255,255,60);
+		transform:skewX(2deg) scale(0.9,0.95)	;	
+	}
+	12%,70%{
+		box-shadow:0 0vw 1vw 0.8vw rgb(255,255,60);		
+		transform:skewX(-1deg) scale(1,1);	
+	}
+	20%{
+		box-shadow:0.1vw -0.2vw 1.4vw 0.8vw rgb(255,255,60);		
+		transform:skewX(-4deg) scale(1,0.8);	
+	}
+	40%{
+		box-shadow:0 0vw 1vw 0.8vw rgb(255,255,60);		
+		transform:skewX(-1deg) scale(1,1);	;			
+	}
+	45%{
+		box-shadow:0 0vw 1vw 0.8vw rgb(255,255,60);		
+		transform:skewX(-1deg)  scale(1.1,0.95);			
+	}
+	80%{
+		box-shadow:0.1vw -0.2vw 1.4vw 0.8vw rgb(255,255,60);		
+		transform:skewX(-1deg) scale(1,1);	
+	}
+}
+@keyframes flackern2{
+	0%,100%{
+		box-shadow:0 -0.2vw 1.2vw 0.8vw rgb(255,255,60);
+	}
+	12%,70%{
+		box-shadow:0 0vw 1vw 0.8vw rgb(255,255,60);		
+	}
+	20%{
+		box-shadow:0.1vw -0.2vw 1.4vw 0.8vw rgb(255,255,60);
+	}
+	40%{
+		box-shadow:0 0vw 1vw 0.8vw rgb(255,255,60);		
+	}
+	45%{
+		box-shadow:0 0vw 1vw 0.8vw rgb(255,255,60);			
+	}
+	80%{
+		box-shadow:0.1vw -0.2vw 1.4vw 0.8vw rgb(255,255,60);		
+	}
+	
+}

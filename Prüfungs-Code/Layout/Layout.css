@@ -1,0 +1,22 @@
+.item1 { grid-area: TITEL; }
+.item2 { grid-area: MENU; }
+.item3 { grid-area: INHALT; }
+.item4 { grid-area: IMPRESSUM; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'TITEL TITEL TITEL TITEL TITEL TITEL'
+  'MENU INHALT INHALT INHALT INHALT INHALT'
+  'IMPRESSUM IMPRESSUM IMPRESSUM IMPRESSUM IMPRESSUM IMPRESSUM';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}

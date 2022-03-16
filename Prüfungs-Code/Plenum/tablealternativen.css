@@ -1,0 +1,61 @@
+body{
+    display: grid; /* muss immer Vorhanden sein*/
+    grid-template-areas: "header header header"
+                         "nav main news"; /*anordung der Elemente*/
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 200px auto; /*Header ist 200px gross, der Rest berechnet es Automatisch*/ 
+}
+header,nav,main,aside{  /*Alle Auswählen (einfach reinschreiben)*/
+    border:1px solid red;
+}
+
+header{
+    background:red;
+    grid-template-areas: 50% 50%;
+    grid-area: header; /*Grid area auswählen
+    Hier Optionenn für "HEADER" eingeben 
+    -------------------------------------*/
+
+
+    /*----------------------KOPIEREN---------------------------*/
+
+    width:100%;             /*wird benötigt ka warum*/
+    height:50px;            /*wird benötigt ka warum*/
+    position:fixed;         /*Fixiert*/
+
+    /*----------------------KOPIEREN---------------------------*/
+}
+nav{
+    grid-area: nav;
+}
+main{
+    grid-area: main;
+}
+aside{
+    grid-area: news;
+}
+.zweisachen{
+    display:grid;
+    grid-template-areas: "links rechts";
+}
+.zweisachen img{
+    width: 100%;
+}
+.links{
+    background: red;
+    grid-area: links;
+}
+.rechts{
+    
+    background: green;
+    grid-area: rechts;
+}
+
+.table{
+    display:grid;
+    grid-template-areas: 20% 20% 20% 20% 20%;
+    grid-template-rows: 200px 200px;
+}
+.table img{
+    width: 100%;
+}

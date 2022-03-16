@@ -1,0 +1,69 @@
+Prüfung
+
+Ausgangslage wird beschrieben
+
+Vor- und Nachteile:
+	?	JPG: Fotos, (-) Qualitätsverlust vorallem bei klaren Kanten/Linien
+	?	PNG: RGBA, Grafiken; (+) kein Qualitätsverlust, (+) mehrere Transparenz-Stufen, (-) Dateigrösse (24bit/32bit)
+	?	GIF: (+) Wenig Platz, Animationen und Grafiken, Bilder mit Transparenter Farbe; (-) Nur 256 Farben, (+) Animationen
+	?	SVG
+
+Gefahr bei fremden Bildern: Urheberrecht
+
+Gratis: Pexels und Pixabay
+Nicht Gratis: Shutterstock
+
+
+Entwurf der Webseite
+	?	Navigationsstruktur als Liste aufschreiben, mit vorgegebenen Titel
+
+	?	Wireframe von der Seite machen
+
+
+Erstellen einer Webseite
+	?	Vorlage machen für Seiten (wie Wireframe —> mehr Punkte)
+	?	Kontakt: Vorname, nachname, Alter, Email, Nachricht, Newsletter
+	?	Protokoll machen und senden
+	?	Funktionierende Seite mit Fehlermeldung und Absenden funktioniert
+
+
+Testen Funkionieren
+Test Kriterium; Soll; Ist
+?
+
+
+Veröffentlichung des Webauftrits
+Was für Programme gibt es für den Datentransfer von lokalem PC zu Website?
+	?	Filezilla
+	?	Linux und Windows aufpassen wegen FTP Namen
+
+Welche Inforamtionen benötigen die FTP Protokolle um eine Verbindung herzustellen?
+	?	Wissen wohin verbinden
+	?	Benutzername
+	?	Passwort
+
+Wie ist das Vorgehen um die ganze Website zu veröffentlichen?
+	?	Webserver/ Webhost
+	?	FTP Client
+	?	Domain
+
+	?	Dokumente von FTP zu Server rüber TUN
+
+Wie kann festgestellt werden, ob die Website auf dem Webserver richtig läuft?
+	?	Alles sauber testen
+
+
+Tabelle machen mit Daten
+
+
+
+Programmieren
+
+?
+
+
+header, main, nav {
+
+}
+
+—> mehrere Sachen formatieren

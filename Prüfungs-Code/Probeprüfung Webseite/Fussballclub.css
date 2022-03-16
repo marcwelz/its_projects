@@ -1,0 +1,84 @@
+body{
+	font-family: Arial;
+}
+.item1 { grid-area: TITEL; background-color: #A1394E;}
+.item2 { grid-area: MENU;background-color: white; width:80%}
+.item3 { grid-area: INHALT; background-color: white; width:95%;}
+.item4 { grid-area: IMPRESSUM;   background-color: rgb(70,130,180);}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'TITEL TITEL TITEL TITEL TITEL TITEL'
+  'MENU INHALT INHALT INHALT INHALT INHALT'
+  'IMPRESSUM IMPRESSUM IMPRESSUM IMPRESSUM IMPRESSUM IMPRESSUM';
+  
+}
+
+.Impressum{
+	color:white;
+	font-size:1vw;
+}
+
+.grid-container > div {
+ 
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+
+.topnav {
+	overflow: hidden;
+	background-color: white;
+	
+}
+
+.topnav a {
+	float: center;
+	display: block;
+	color: black;
+	text-align: left;
+	padding: 14px;
+	padding-right: 50px;
+	text-decoration: none;
+	font-size: 1vw;
+	font-weight: bold;
+	border-style: solid;
+}
+.btn {
+  background-color: rgb(200,200,200);
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color:rgb(100,100,100);
+  color: white;
+  border-color: rgb(255,102,102);
+}
+.btn2 {
+  background-color: rgb(200,200,200);
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 10px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+
+.btn2:hover {
+  background-color:rgb(255,102,102);
+  color: white;
+  border-color: red;
+}
+
+
+
+

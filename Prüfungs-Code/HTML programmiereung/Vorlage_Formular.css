@@ -1,0 +1,131 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial;
+	padding: 2vw;
+	background: #f1f1f1;
+}
+
+.header {
+	padding: 30px;
+	text-align: center;
+	background: white;
+	color: black;
+}
+
+.header h1 {
+	font-size: 50px;
+	background-color: white;
+	color: black;
+}
+
+h2 {
+	color: black;
+	font-size: 3vw;
+}
+
+h5 {
+	color: black;
+}
+
+h3 {
+	color: black;
+}
+
+.topnav {
+	overflow: hidden;
+	background-color: #f2f2f2;
+}
+
+.topnav a {
+	float: center;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px;
+	padding-right: 50px;
+	text-decoration: none;
+	font-size: 1vw;
+}
+
+.topnav a:hover {
+	background-color: rgb(123,104,238);
+	color: black;
+}
+
+.leftcolumn {
+	float: left;
+	width: 100%;
+	background-color: #f2f2f2;
+	
+}
+
+.column {
+	float: left;
+	width: 31%;
+	padding: 1vw;
+	margin: 1vw;
+	overflow: auto;
+	height: 30vw;
+	background-color: rgb(135,206,250);
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.fakeimg {
+	background-color: #aaa;
+	width: 100%;
+	padding: 20px;
+	color: white;
+}
+
+.card {
+	padding: 20px;
+	margin-top: 20px;
+	background-color: white;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.topnav a{
+	text-align: center;
+	color: black;
+}
+
+.footer {
+	padding: 1vw;
+	text-align: center;
+	background: #666666;
+	margin-top: 1vw;
+	font-size: 2vw;
+}
+
+p{
+	color: black;
+	font-size: 1vw;
+}
+
+div h2 p{
+	text-overflow: cut;
+}
+@media screen and (max-width: 800px) {
+	.column {
+		width: 100%;
+		padding: 1vw;
+		margin: 1vw;
+		overflow: auto;
+		height: 30vw;
+		background-color: red;
+		overflow: ellipsis;
+	}
+}

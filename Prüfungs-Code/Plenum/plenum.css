@@ -1,0 +1,23 @@
+body{
+    display: grid;
+    grid-template-areas: "header header header"
+                         "nav main news"; /*anordung der Elemente*/
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 200px auto;
+}
+header,nav,main,aside{  /*Alle Auswählen (einfach reinschreiben)*/
+    border:1px solid red;
+}
+
+header{
+    grid-area: header;
+}
+nav{
+    grid-area: nav;
+}
+main{
+    grid-area: main;
+}
+aside{
+    grid-area: news;
+}

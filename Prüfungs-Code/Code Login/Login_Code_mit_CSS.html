@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Login Code</title>
+	<link href="Login.css" rel="stylesheet">
+</head>
+<body>
+
+	<div class="row">
+		<div class="leftcolumn">
+			<div class="card">
+				<h2>Registrieren</h2>
+				<h5>Sind Sie Neukunde? Dann Registrieren Sie sich.</h5>
+				<form method="post" action="<!--Hier den Link eingeben, wohin die Daten versendet werden sollen. -->">
+				<table>
+				<tr>
+					<table>
+						<tr>
+								<!--NAME, VORNAME -->
+							<th><input type="text" required name="Vorname" placeholder="Vorname"></th>
+							<th><input type="text" required name="Nachname" placeholder="Nachname"></th>
+						</tr>
+					</table>	
+					<table>
+						<tr>
+								<!--ADRESSE -->
+							<th><input type="text" size="32" required name="Strasse" placeholder="Strasse"></th>
+							<th><input type="text" size="8" required name="Hausnummer" placeholder="Nummer"></th>
+						</tr>
+					</table>
+					<table>
+							<tr>
+								<!--PLZ, STADT -->
+								<th><input type="text" size="32" required name="Stadt" placeholder="Stadt"></th>
+								<th><input type="text" maxlength="4" size="8"   required name="PLZ" placeholder="PLZ"></th>
+							</tr>
+						</table>
+						<table>
+							<tr>
+								<!--E-MAIL-->
+								<th><input type="email" size="43" required name="mail" placeholder="Ihre Mail"></th>
+							</tr>
+						</table>
+						<table>
+							<tr>
+								<!--Geburtstag (BELIEBIG WÄHLEN) -->
+								<th class="geburi">
+									Geburtsdatum: <input type="date" name="Geburtstag">
+								</th>
+							</tr>
+							
+						</table>
+						<!--KNOPF-->
+						<input type="submit">
+						<!--(OPTIONAL!) LEGT DEN Knopf in der Mitte-->
+						<div class="mitte">
+							
+
+					</div> 
+				</form>
+				<!--Texte o.ä nach dem Anmeldefeld-->
+				<h6>Alle Felder sind Pflicht!</h6>
+				<p>Ihre Daten werden an die Russische Mafia verkauft</p>
+					<!--Code provided by Marc (C) AllRightsReserved -->				
+			</tr>	
+			</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>	
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!--CSS-DATEI-->
+
+.leftcolumn {
+	float: left;
+	width: 100%;
+	background-color: #f2f2f2;	
+}
+
+
+.card {
+	padding: 20px;
+	margin-top: 20px;
+	background-color: white;
+}
+
+
+.geburi {
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 100;
+}
+
+
+
+
+
+
+
+
+
