@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Marc is the best</title>
+<link rel="stylesheet" href="style_marc.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+ 
+ <div class="wrapper">
+    <div class="block">
+        <h1 class="titel">Marc's great Website</h1>
+        <div class="mitte">
+            Press This Button you won't regret
+         </div>
+        <input type="button" class="button" value="Activate me!" onclick="scheisse()">
+        <input type="text" id="input" placeholder="Enter something..." value="">
+        <input type="button" class="button" value="Submit" id="submit" onclick="input2(this.id)">
+        <input type="button" class="button" value="Restore" id="restore" onclick="input2(this.id)">
+
+    </div>
+ </div>
+ <script>
+     var input;
+     function scheisse() {
+        var msg = new SpeechSynthesisUtterance('i am gay');
+	    window.speechSynthesis.speak(msg);
+
+     }
+
+     function input2(clicked_id) {
+        if(clicked_id == "submit") {
+		input = document.getElementById("input").value;
+        var msg = new SpeechSynthesisUtterance(input);
+	    window.speechSynthesis.speak(msg);
+        document.getElementById("input").value = "";
+		}
+		if(clicked_id == "restore") {
+			var msg = new SpeechSynthesisUtterance(input);
+			window.speechSynthesis.speak(msg);
+			return;
+		}
+     }
+
+    
+    
+ </script>
+</body>
+
+</html>
