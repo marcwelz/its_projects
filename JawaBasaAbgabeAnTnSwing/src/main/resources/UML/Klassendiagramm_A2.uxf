@@ -1,0 +1,1209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1648</x>
+      <y>336</y>
+      <w>160</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+DialogState
+--
+IDLE
+LEND
+RETURN
+SHOW_LENDED_ARTICLES
+LOGIN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>608</y>
+      <w>2944</w>
+      <h>904</h>
+    </coordinates>
+    <panel_attributes>model</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1864</x>
+      <y>232</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>DialogStateWrapper
+--
++ state: DialogState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>2008</x>
+      <y>208</y>
+      <w>128</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Benötigt es, 
+um einen DialogState 
+als Parameter 
+byReference zu nutzen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1976</x>
+      <y>224</y>
+      <w>48</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;40.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2280</x>
+      <y>336</y>
+      <w>280</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>InventoryMainController
+--
+- alle Variablen vom Dialog (fxml)
+- dialogState: DialogStateWrapper
+- scannedArticles: ObservableList&lt;Article&gt;
+- scanedUser: User
+- webCamService: WebCamService
+--
++ initialize(location: URL,resources: ResourceBundle)
+- handleLend(event: ActionEvent)
+- handleReturn(event: ActionEvent)
+- showLendedArticles(event: ActionEvent)
+- handleInventoryAdmin(event: ActionEvent)
+- handleCheckout(event: ActionEvent)
+- handleCancel(event: ActionEvent)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1976</x>
+      <y>256</y>
+      <w>320</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;instantiate&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;380.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1840</x>
+      <y>336</y>
+      <w>312</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>WebCamService
+--
+- stateWrapper: DialogStateWrapper
+- articles: ObservableList&lt;Article&gt;
+- userInfo: User
+- daoManager: DaoManager
+- daoArticle: DaoArticle
+- daoUser: DaoUser
+- daoLendArticle: DaoLendArticle
+- weitere für interne Funktionalität notwendige Attribute
+--
++ WebCamService(articles: ObservableList&lt;Article&gt; ,
+   userOnDialog User, stateWrapper: DialogStateWrapper)
+# createTask(): Task&lt;Image&gt;
+- addEntryInUI(entry: String)
+- loadFrame(): BufferedImage
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2144</x>
+      <y>392</y>
+      <w>152</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+&lt; nutz</panel_attributes>
+    <additional_attributes>170.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2664</x>
+      <y>184</y>
+      <w>152</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>InventoryAdminController</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1200</x>
+      <y>200</y>
+      <w>384</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>InventoryLendSaveController
+--
+-Attribute vom Dialog
+-scannedArticles: ObservableList&lt;Article&gt;
+-scannedUser: User
+-dialogState: DialogStateWrapper
+-daoManager: DaoManager
+-daoLendArticle: DaoLendArticle
+--
++InventoryLendSaveController(ObservableList&lt;Article&gt; scannedArticles, 
+                                                  User user, DialogStateWrapper dialogState)
++initialize(URL location, ResourceBundle resources): void
+-handleOk(final ActionEvent event): void
+-handleCancel(final ActionEvent event): void
+-closeDialog(): void
+-saveLend(): void
+-saveReturn(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1760</x>
+      <y>0</y>
+      <w>840</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>view</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2032</x>
+      <y>40</y>
+      <w>128</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>InventoryMainView
+--
+_+ main(args: String[])_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2088</x>
+      <y>80</y>
+      <w>384</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>460.0;320.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2416</x>
+      <y>40</y>
+      <w>128</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>InventoryAdminView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1864</x>
+      <y>40</y>
+      <w>128</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>InventoryLendSaveView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2192</x>
+      <y>40</y>
+      <w>192</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>InventoryShowLendedArticlesView</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1944</x>
+      <y>64</y>
+      <w>480</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;opens&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;580.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1544</x>
+      <y>64</y>
+      <w>392</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;170.0;470.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2288</x>
+      <y>64</y>
+      <w>248</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;opens&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;290.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2488</x>
+      <y>64</y>
+      <w>88</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;opens&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2504</x>
+      <y>64</y>
+      <w>248</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>290.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2344</x>
+      <y>64</y>
+      <w>336</w>
+      <h>328</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>400.0;390.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1904</x>
+      <y>264</y>
+      <w>64</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>648</x>
+      <y>152</y>
+      <w>2296</w>
+      <h>448</h>
+    </coordinates>
+    <panel_attributes>control</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1992</x>
+      <y>648</y>
+      <w>176</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Article
+--
+-id: String
+-description: String
+-productImage: BufferedImage
+--
++ Konstruktoren nach Bedarf
++ getter/setter für alle Attribute</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2000</x>
+      <y>528</y>
+      <w>104</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=0..1
+ scannt ein &gt;</panel_attributes>
+    <additional_attributes>10.0;150.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2136</x>
+      <y>512</y>
+      <w>224</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;zeigt an&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;170.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2640</x>
+      <y>648</y>
+      <w>176</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>User
+--
+-id: String
+-firstname: String
+-lastname: String
+-phone: String
+-role: UserRole
+--
++ Konstruktoren nach Bedarf
++ getter/setter für alle Attribute</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2144</x>
+      <y>496</y>
+      <w>512</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1
+ scannt ein &gt;</panel_attributes>
+    <additional_attributes>620.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2488</x>
+      <y>512</y>
+      <w>304</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;verwendet&gt;&gt;</panel_attributes>
+    <additional_attributes>360.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2856</x>
+      <y>656</y>
+      <w>72</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+UserRole
+--
+USER
+ADMIN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2808</x>
+      <y>664</y>
+      <w>64</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1488</x>
+      <y>1160</y>
+      <w>1296</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>mySQL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2152</x>
+      <y>848</y>
+      <w>280</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Singelton, Factory&gt;&gt;
+DaoManager
+--
+_- INSTANCE: DaoManager_
+- con: Connection
+--
+- DaoManager()
+_- getInstance(): DaoManager_
+- getConnection(): Connection
+- open()
+- close()
++ getDao(table: DbTables): DaoInventoryGeneric&lt;?&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2512</x>
+      <y>824</y>
+      <w>96</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+DbTables
+--
+USER
+ARTICLE
+LEND_ARTICLE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2616</x>
+      <y>920</y>
+      <w>152</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>InventoryDaoErrorException</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2584</x>
+      <y>968</y>
+      <w>184</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>InventoryDataNotFoundException</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2848</x>
+      <y>928</y>
+      <w>112</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>RuntimeException</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2848</x>
+      <y>968</y>
+      <w>112</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>Exception</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2760</x>
+      <y>928</y>
+      <w>104</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2760</x>
+      <y>968</y>
+      <w>104</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1528</x>
+      <y>1208</y>
+      <w>256</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>DaoArticle&lt;Article&gt;
+--
+
+--
++ DaoArticle(con: Connection, tableName: String)
++ save(entry: Article)
++ update(entry: Article)
++ delete(entry: Article)
++ getById(entry: Article): Article
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1496</x>
+      <y>832</y>
+      <w>384</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+DaoInventoryGeneric&lt;T&gt;
+--
+# TABLE_NAME: String
+# con: Connection
+--
++ DaoInventoryGeneric(con: Connection, tableName: String)
+/+ save(entry: T) throws InventoryDataNotFoundException &lt;&lt;abstract&gt;&gt;/
+/+ update(entry: T) throws InventoryDataNotFoundException &lt;&lt;abstract&gt;&gt;/
+/+ delete(entry: T) throws InventoryDataNotFoundException &lt;&lt;abstract&gt;&gt;/
+/+ getById(entry: T): T throws InventoryDataNotFoundException &lt;&lt;abstract&gt;&gt;/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1440</x>
+      <y>792</y>
+      <w>1360</w>
+      <h>664</h>
+    </coordinates>
+    <panel_attributes>db</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1552</x>
+      <y>960</y>
+      <w>152</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1808</x>
+      <y>1208</y>
+      <w>360</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>DaoUser&lt;User&gt;
+--
+
+--
++ DaoUser(con: Connection, tableName: String)
++ save(entry: User)
++ update(entry: User)
++ delete(entry: User)
++ getById(entry: User): User
++ loadAll(): ArrayList&lt;User&gt; throws InventoryDataNotFoundException</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1688</x>
+      <y>960</y>
+      <w>288</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;340.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2192</x>
+      <y>1208</y>
+      <w>480</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>DaoLendArticle
+--
+-daoManger: DaoManager
+-daoArticle: DaoArticle
+-daoUser: DaoUser
+--
++DaoLendArticle(Connection con)
++save(LendArticle entry)
++update(LendArticle entry)
++delete(LendArticle entry)
++getById(LendArticle entry): LendArticle
++isArticleAlreadyLended(LendArticle entry): boolean
++loadAllOverdue(): ArrayList&lt;LendArticle&gt;
++loadAllByUser(LendArticle entry): ArrayList&lt;LendArticle&gt;
+-loadAllByUserAndByDate(LendArticle entry, LocalDate overdueDate): ArrayList&lt;LendArticle&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1712</x>
+      <y>960</y>
+      <w>560</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;680.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1832</x>
+      <y>960</y>
+      <w>552</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+m1=1
+m2=2
+&lt; verwendet andere Dao</panel_attributes>
+    <additional_attributes>670.0;310.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2144</x>
+      <y>528</y>
+      <w>136</w>
+      <h>336</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+uses</panel_attributes>
+    <additional_attributes>150.0;400.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1664</x>
+      <y>528</y>
+      <w>248</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=3
+m2=0..1
+&lt; verwendet</panel_attributes>
+    <additional_attributes>10.0;380.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1872</x>
+      <y>880</y>
+      <w>296</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+creates</panel_attributes>
+    <additional_attributes>10.0;20.0;350.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1552</x>
+      <y>400</y>
+      <w>616</w>
+      <h>496</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+uses</panel_attributes>
+    <additional_attributes>750.0;600.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1360</x>
+      <y>400</y>
+      <w>176</w>
+      <h>448</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=3
+m2=0..1
+verwendet &gt;</panel_attributes>
+    <additional_attributes>200.0;540.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1032</x>
+      <y>736</y>
+      <w>368</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>LendArticle
+--
+-article: Article
+-user: User
+-state: LendState
+-lendingStartDate: LocalDate
+-lendigPlannedEndDate: LocalDate
+-returnedDate: LocalDate
+-returnedByUserId: String
+--
++LendArticle()
++LendArticle(Article article, User user, 
+                     LendState state, LocalDate lendingStartDate, 
+                     LocalDate lendigPlannedEndDate, LocalDate returnedDate, 
+                     String returnedByUserId)
++print(): void
++compareTo(LendArticle o): int
++ getter/setter Methoden nach Bedarf
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>704</x>
+      <y>1240</y>
+      <w>224</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+/ReceiptComponent/
+--
+#pdfWriter: PdfPrintable
+--
+#setPdfWriter(PdfPrintable pdfWriter): void
+/+print() &lt;&lt;abstract&gt;&gt;/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>848</x>
+      <y>792</y>
+      <w>200</w>
+      <h>464</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;560.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1112</x>
+      <y>1016</y>
+      <w>88</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+LendState
+--
+LEND
+RETURNED
+LOST
+REMINDED</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1136</x>
+      <y>960</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>88</x>
+      <y>648</y>
+      <w>864</w>
+      <h>832</h>
+    </coordinates>
+    <panel_attributes>print</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1048</x>
+      <y>664</y>
+      <w>192</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+java.lang::Comparable&lt;LendArticle&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1104</x>
+      <y>688</y>
+      <w>48</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>304</x>
+      <y>1240</y>
+      <w>336</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>PdfReceipt
+--
+-components: ArrayList&lt;ReceiptComponent&gt;
+-filePath: String
+-userOnPdf: User
+--
++PdfReceipt(User user, LocalDate lendStart, LocalDate lendEnd)
++print(): void
++add(ReceiptComponent c): void
++remove(ReceiptComponent c): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>632</x>
+      <y>1280</y>
+      <w>88</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>1320</y>
+      <w>408</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+beinhaltet &gt;</panel_attributes>
+    <additional_attributes>490.0;10.0;490.0;140.0;10.0;140.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>136</x>
+      <y>680</y>
+      <w>720</w>
+      <h>384</h>
+    </coordinates>
+    <panel_attributes>pdf</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>864</y>
+      <w>544</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>SimplePdfWriter
+--
+-document: Document
+-pdf: PdfDocument
+-writer: PdfWriter
+-AXA_ACADEMY_ICON = "axa_RGB_PNG.png": String
+--
++SimplePdfWriter(String fileName): ctor
++printTitel(String titleText, User user): void
++printLine(String articleID, String articleDescription, String lendDate, String plannedReturnDate): void
++finish(String text): void
+-createDetailLineParagraphWithTab(String value1, String value2, String value3, String value4): Paragraph
+-printInfoHeader(User user): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>712</y>
+      <w>488</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+PdfPrintable
+--
+
+--
++printTitel(String titleText, User user
++printLine(String articleID, String articleDescription, String lendDate, String plannedReturnDate)
++finish(String text)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>608</x>
+      <y>800</y>
+      <w>64</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>1024</y>
+      <w>56</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+creates</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1288</x>
+      <y>400</y>
+      <w>72</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=*
+m2=1
+&lt; erstellt</panel_attributes>
+    <additional_attributes>10.0;420.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>368</y>
+      <w>600</w>
+      <h>888</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+create</panel_attributes>
+    <additional_attributes>10.0;1090.0;730.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2424</x>
+      <y>856</y>
+      <w>104</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>800</y>
+      <w>104</w>
+      <h>456</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+use</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;550.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1952</x>
+      <y>912</y>
+      <w>152</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Instanziiert in der Factory-
+Methode getDao(...) das
+gewünschte konrkete
+Dao-Objekt, Bsp DaoArticle</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2008</x>
+      <y>880</y>
+      <w>40</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>30.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2384</x>
+      <y>984</y>
+      <w>88</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+m1=
+m2=
+  verwendet</panel_attributes>
+    <additional_attributes>40.0;280.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2600</x>
+      <y>376</y>
+      <w>296</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>InventoryShowLendedArticlesController
+--
+-scannedUser: User
+-daoManager: DaoManager
+-daoLendArticle: DaoLendArticle
+-lendedArticles: ObservableList&lt;LendArticle&gt;
+--
++InventoryShowLendedArticlesController(User user)
++initialize(URL location, ResourceBundle resources): void
+-closeDialog(final ActionEvent event): void
+-getData(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2264</x>
+      <y>552</y>
+      <w>376</w>
+      <h>312</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+uses</panel_attributes>
+    <additional_attributes>10.0;370.0;450.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1792</x>
+      <y>264</y>
+      <w>88</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1576</x>
+      <y>232</y>
+      <w>304</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>360.0;30.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2784</x>
+      <y>552</y>
+      <w>48</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+uses</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1392</x>
+      <y>512</y>
+      <w>1224</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+uses</panel_attributes>
+    <additional_attributes>10.0;290.0;1510.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1872</x>
+      <y>544</y>
+      <w>744</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..1</panel_attributes>
+    <additional_attributes>10.0;420.0;910.0;10.0</additional_attributes>
+  </element>
+</diagram>
