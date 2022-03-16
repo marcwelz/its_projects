@@ -1,0 +1,7 @@
+body {
+	font-family:verdana;
+}
+
+.hide-me {
+	visibility: hidden;
+}

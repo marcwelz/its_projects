@@ -1,0 +1,343 @@
+<!Doctype html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<title>Faltgeschichten</title>
+		<link rel="stylesheet" href = "style _Faltgeschichten.css"	>
+	</head>
+	
+	<body>
+	<div class="logo">
+		<img src="Logo.png" width="100%" onclick="window.location.href = 'http://10.150.61.150:8081/GameESite/index.php';">
+	</div>
+	
+	<header>
+			<div class="titelschrift">Faltgeschichten</div>
+	</header>
+	
+	<div class="bild">
+		<img src="faltgeschichten.png" width="100%" onclick="window.location.href = 'Easteregg.html';">
+	</div>
+	
+	<div class="main">
+		
+		<table>
+			<tr class="regeln" id="regel">
+				<th></th>
+				<th>
+					<div class="regelntitels">Singleplayer</div>
+					Deine Antwort und die von<br> 
+					deinen Vorgängern werden auf <br>
+					einer Datenbank gespeichert.<br> 
+					Diese Werden am Schluss und <br> 
+					ausgewertetes wird ein Satz mit<br>
+					diesen Wörtern gebildet.<br> 
+					<br>
+					Es gelden die Üblichen Regeln wie:<br>
+					- Keine Rassistischen Ausdrücke<br>
+					- Keine Nazistische Ausdrücke<br>
+					- Kein Mobbing<br>
+					- Keine Vertraulichen Daten<br>
+					<br>
+				</th>
+				<th>
+					<div class="regelntitels">Multiplayer</div>
+					Das Originale Faltgeschichten<br>
+					Sammle deine Freunde auf <br> 
+					eine Runde Faltgeschichten ein<br>
+					<br>
+					Momentan befindet sich <br>
+					Faltgeschichten Online noch<br>
+					im Aufbau. Wir bitten <br>
+					um Entschuldigung und <br>
+					Verständnis! <br>
+					<br>
+					Der Singleplayer steht<br>
+					Ihnen jedoch jederzeit<br>
+					zur Verfügung!<br>
+				</th>
+				<th>
+					<div class="regelntitels">Story-Mode</div>
+					Keine Lust immer<br>
+					Antworten zu geben?<br>
+					Kein Problem!<br>
+					<br>
+					Im Story-Mode <br>
+					können Sie ganz <br>
+					einfach einen Text<br>
+					aus der Datenbank <br>
+					erstellen lassen ohne<br>
+					das Sie etwas eingeben müssen!<br>
+					<br>
+					<br>
+					<br>
+				</th>
+				<th>
+				</th>
+			</tr>	
+			<tr>
+				<th><div class="dummerknopf"><input type="button" width="50%" class="button" style="display:none" value="zurück" id="zurück" onclick="window.location.href = 'faltgeschichten.html'"/></th> <!--link einfuegen-->
+				<th><input type="button" class="button" value="Singelplayer" id="startknopf" onclick="neustart()"/></th>
+				<th><input type="button" class="button" value="Multiplayer" id="mulziplayer" onclick=""/></th>
+				<th><input type="button" class="button" value="Story-Mode" id="story" onclick="story()"/></div></th>
+				<th><input type="button" id="aussprache" value="vorlesen" class="button" onclick="aussprechen()" style="display:none"/></th>
+			</tr>
+		</table>
+		<div class="ausgabefeld">
+			<br><br>
+			<p id="eingabe"/>
+			<br><br>
+			<p id="eingabe2"/>
+		</div>
+		<input type="text" id="textfeld" placeholder="" style="display:none" width="90%">
+		<div class="ausgabefeld2"><p id="countdown"/></div>
+		
+	</div>
+	
+	<script>
+		var stufe = 0;
+		var antworte = "";
+		var antwort1;
+		var antwort2;
+		var antwort3;
+		var antwort4;
+		var antwort5;
+		var antwort6;
+		var ausblenden = true;
+		var countdown2 = 1;
+		var jo = 1;
+		var ausgabecounter = 1;
+		var antwortaussprache;
+		
+		var satzdaten = [];
+		
+		function neustart() {
+			document.getElementById("countdown").style.display = "";
+			document.getElementById("zurück").style.display = "none";
+			document.getElementById("mulziplayer").style.display = "none";
+			document.getElementById("story").style.display = "none";
+			document.getElementById("regel").style.display = "none";
+			document.getElementById("aussprache").style.display = "none";
+			stufe = 0;
+			antworte = "";
+			antwort1 = "";
+			antwort2 = "";
+			antwort3 = "";
+			antwort4 = "";
+			antwort5 = "";
+			antwort6 = "";
+			ausblenden = true;
+			countdown2 = 1;
+			jo = 1;
+			ausgabecounter = 1;
+			satzdaten = [{}];
+			antwort();
+		}
+		
+		function antwort() {
+		
+			
+
+			if (ausblenden === true) {
+				document.getElementById("textfeld").style.display = "block";
+				document.getElementById("startknopf").value = "weiter";
+				document.getElementById("startknopf").style.display = "none";
+				ausblenden = false;
+			}
+			
+			if(stufe == 6) {
+				antwort6 = document.getElementById("textfeld").value;
+				document.getElementById("textfeld").value = "";
+				document.getElementById("eingabe").innerHTML = antwort1 + " " + antwort2 + " " + antwort3 + " " + antwort4 + " " + antwort5 + " " + antwort6;
+				
+			}
+			
+			if(stufe == 5) {
+				document.getElementById("eingabe").innerHTML = "Wieso? (z.b weil er schon immer Erwachsen sein wollte)";
+				antwort5 = document.getElementById("textfeld").value;
+				document.getElementById("textfeld").value = "";
+				document.getElementById("startknopf").value = "fertig";
+				stufe++;
+			}
+			
+			if(stufe == 4) {
+				document.getElementById("eingabe").innerHTML = "Wann? (Z.b Montags, 4:20 morgens, 2019)";
+				antwort4 = document.getElementById("textfeld").value;
+				document.getElementById("textfeld").value = "";
+				stufe++;
+			}
+			
+			if(stufe == 3) {
+				document.getElementById("eingabe").innerHTML = "Wo macht er das? (In einem Supermarkt, Auf dem WC)";
+				antwort3 = document.getElementById("textfeld").value;
+				document.getElementById("textfeld").value = "";
+				stufe++;
+			}
+			
+			if(stufe == 2) {
+				document.getElementById("eingabe").innerHTML = "Was macht er? (z.b ein Buch lesen)";
+				antwort2 = document.getElementById("textfeld").value;
+				document.getElementById("textfeld").value = "";
+				stufe++;
+			}
+			
+			if(stufe == 1) {
+				document.getElementById("eingabe").innerHTML = "Beruf (z.b Putzkraft, Kanalreiniger)";
+				antwort1 = document.getElementById("textfeld").value;
+				document.getElementById("textfeld").value = "";
+				stufe++;
+			}
+			
+			if(stufe == 0) {
+				document.getElementById("eingabe").innerHTML = "Wer? (Person die jeder kennt, z.b ein Held, eine echte Person etc.)";
+				document.getElementById("textfeld").value = "";
+				stufe++;
+			}
+			else {
+				var k = document.getElementById("textfeld").value;
+				if(k == "") {
+					if(antwort6 == "" && jo == 6) {
+						antwort6 = "Weil er der Überzeugung war, dass die Erde flach ist";
+						console.log("User eingabe war leer");
+					}
+					if(antwort5 == "" && jo == 5) {
+						antwort5 = "Heute Morgen, bevor dem täglichen Morgenkaffee";
+						console.log("User eingabe war leer");
+					}
+					if(antwort4 == "" && jo == 4) {
+						antwort4 = "in einem ruhigen Ort vor dem Kindergarten";
+						console.log("User eingabe war leer");
+					}
+					if(antwort3 == "" && jo == 3) {
+						antwort3 = "Er liest ein Artikel über das Ausbrechen des Corona-Viruses";
+						console.log("User eingabe war leer");
+					}
+					if(antwort2 == "" && jo == 2) {
+						antwort2 = "Reiseführer in einem gefürchteten Spukhotel";
+						console.log("User eingabe war leer");
+					}
+					if(antwort1 == "" && jo == 1) {
+						antwort1 = "Karsten Stahl";
+						console.log("User eingabe war leer");
+					}
+					jo++;
+					
+					if(ausgabecounter >= 1) {
+						console.log("erste antwort: " + antwort1);
+					}
+					if(ausgabecounter >= 2) {
+						console.log("zweite antowrt: " + antwort2);
+					}
+					if(ausgabecounter >= 3) {
+						console.log("dritte antwort: " + antwort3);
+					}
+					if(ausgabecounter >= 4) {
+						console.log("vierte antwort: " + antwort4);
+					}
+					if(ausgabecounter >= 5) {
+						console.log("fünfte antwort: " + antwort5);
+					}
+					if(ausgabecounter >= 6) {
+						console.log("sechste antwort: " + antwort6);
+						ausblenden = true;
+					}
+					if(ausblenden == true) {
+					
+						
+					
+						satzdaten = [antwort1,antwort2,antwort3,antwort4,antwort5,antwort6];
+						
+						ausblenden = false;
+					}
+					
+					console.log("----------------------------------");
+					ausgabecounter++;
+				}
+				
+				
+			}
+			if(countdown2 <= 6) {
+				var timeleft = 16; //Zeit angeben in Sekunden
+				var downloadTimer = setInterval(function(){
+					if(timeleft <= 0){
+						clearInterval(downloadTimer);
+						document.getElementById("countdown").innerHTML = "Finished";
+						countdown2++;
+						antwort();
+					} else {
+						document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+					}
+					timeleft -= 1;
+				}, 1000);
+			}
+			if(countdown2 == 7) {
+				document.getElementById("textfeld").style.display = "none";
+				document.getElementById("countdown").style.display = "none"; 
+				document.getElementById("startknopf").style.display = "";
+				document.getElementById("startknopf").value = "Wiederholen";
+				document.getElementById("aussprache").style.display = "";
+				document.getElementById("zurück").style.display = "";
+				
+				console.log(satzdaten);
+				
+				document.getElementById("eingabe2").innerHTML = "Dein Satz: " + antwort1 + " " + antwort2 + " " + antwort3 + " " + antwort4 + " " + antwort5 + " " + antwort6;
+				
+				const jsonString = JSON.stringify(satzdaten);
+				const xhr = new XMLHttpRequest();
+				
+				xhr.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					   document.getElementById("eingabe").innerHTML = xhr.responseText;
+					   
+					   var msg = new SpeechSynthesisUtterance(xhr.responseText);
+						window.speechSynthesis.speak(msg);
+						
+						antwortaussprache=xhr.responseText;
+					}
+				};
+				
+				xhr.open("POST", "speicher_antworten.php");
+				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.send(jsonString);
+			}
+			
+		}
+		function aussprechen() {
+			var msg = new SpeechSynthesisUtterance(antwortaussprache);
+			window.speechSynthesis.speak(msg);
+		}
+		
+		
+		
+		function story() {
+			
+			document.getElementById("zurück").style.display = "";
+			document.getElementById("mulziplayer").style.display = "none";
+			document.getElementById("story").value = "neue Story";
+			document.getElementById("regel").style.display = "none";
+			document.getElementById("aussprache").style.display = "";
+			document.getElementById("startknopf").style.display = "none";
+			
+			const xhr = new XMLHttpRequest();
+				
+				xhr.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					   document.getElementById("eingabe").innerHTML = xhr.responseText;
+					   
+					   var msg = new SpeechSynthesisUtterance(xhr.responseText);
+						window.speechSynthesis.speak(msg);
+						
+						antwortaussprache=xhr.responseText;
+					}
+				};
+				
+			xhr.open("POST", "story.php");
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.send();
+		}
+		
+	</script>
+	
+	</body>
+
+</html>

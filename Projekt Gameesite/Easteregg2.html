@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Easteregg</title>
+<link rel="stylesheet" href = "style_Easteregg.css" >
+</head>
+<body>
+	<div class="block">
+		<div class="titel"> 
+		Eine Welt voller Überraschungen
+		</div>
+		<div class="titel2"> 
+		Du hast den Meme gefunden !!
+		</div><br>
+		<div class="titel3">
+			<th><input type="button" class="button" value="meme!!" id="meme2" onclick="aussprechen()"></th>
+		</div>
+		<div class="titel3mitte text-align="center" style="display:none" id="text"> 
+		when you repair something<br> just enough so the next person<br> using it, breaks it
+		</div>
+		<img src="stonks.png" style="display:none" id="meme" width="100%">
+	</div>
+	
+	<script>
+		
+		function aussprechen() {
+			document.getElementById("text").style.display = "";
+			document.getElementById("meme2").style.display = "none";
+			var msg = new SpeechSynthesisUtterance("when you repair something just enough so the next person using it, breaks it.");
+			window.speechSynthesis.speak(msg);
+				
+			var timeleft = 5; //Zeit angeben in Sekunden
+				var downloadTimer = setInterval(function(){
+					if(timeleft <= 0){
+						clearInterval(downloadTimer);
+					
+						console.log("Finished");
+						document.getElementById("meme").style.display = "";
+						var msg = new SpeechSynthesisUtterance("enjinir");
+						window.speechSynthesis.speak(msg);
+						
+					} else {
+						console.log(timeleft + " seconds remaining");
+					}
+					timeleft -= 1;
+				}, 1000);
+				
+				
+			
+		}
+	
+	</script>
+	
+</body>
+
+</html>

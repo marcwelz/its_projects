@@ -1,0 +1,84 @@
+<!Doctype html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<title>ajaX</title>
+		<link rel="stylesheet" href = "ajax.css" >
+	</head>
+	
+	<body>
+		<button id="btn">drücke mich</button>
+		
+		<div id="animal-info"></div>
+		
+		<script>
+			
+			var thePets = [
+				{
+					"name":"mautviel",
+					"species":"cat",
+					"favFood": "tuna"
+				},
+				{
+					"name":"barky",
+					"species":"dog",
+					"favFood": "carrots"
+				}
+			];
+			
+			thePets[1].favFood; //gibt Carrots aus 1.Array, 2. Objekt
+			
+			var pageCounter = 1;
+			var animalContainer = document.getElementById("animal-info");
+			var btn = document.getElementById("btn");
+			
+			btn.addEventListener("click", function() {
+				var ourRequest = new XMLHttpRequest();
+				ourRequest.open('GET', 'https://learnwebcode.github.io/json-example/animals-' + pageCounter + '.json');
+				ourRequest.onload = function() {
+					var ourData = JSON.parse(ourRequest.responseText); //die daten werden im einem var gespeichert
+					renderHTML(ourData);
+				};
+				ourRequest.send();
+				pageCounter++;
+				if(pageCounter > 3) {
+					btn.classList.add("hide-me");
+				}
+			});
+
+			function renderHTML(data) {
+				var htmlString = "";
+				
+				for(var i = 0; i < data.length; i++) {
+					htmlString += "<p>" + data[i].name + " Is a " + data[i].species + " that likes to eat ";
+					for (var k = 0; k < data[i].foods.likes.length; k++) {
+						if(k == 0) {
+							htmlString += data[i].foods.likes[k];
+						} else {
+							htmlString += " and" + data[i].foods.likes[k];
+						}
+					}
+					
+					htmlString += ' and dislikes ';
+					
+					for (var k = 0; k < data[i].foods.dislikes.length; k++) {
+						if(k == 0) {
+							htmlString += data[i].foods.dislikes[k];
+						} else {
+							htmlString += " and" + data[i].foods.dislikes[k];
+						}
+					}
+					
+					htmlString += '.</p>';
+					
+				}
+			
+				
+				animalContainer.insertAdjacentHTML('beforeend', htmlString);
+			}
+			
+		</script>
+	
+	</body
+	
+</html>

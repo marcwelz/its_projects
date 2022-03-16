@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Easteregg</title>
+<link rel="stylesheet" href = "style_Easteregg.css" >
+</head>
+<body>
+	
+	<div class="block">
+		<div class="titel"> 
+		Eine Welt voller Überraschungen
+		</div>
+		<div class="titel2"> 
+		Du hast den Aussprecher gefunden !!
+		</div><br>
+		<div class="titel3"> 
+		Was möchtest du aussprechen lassen?
+		</div>
+		<table>
+			<tr>
+				<th><input type="text" id="eingabe" placeholder="Gebe etwas ein..."></th>
+				<th><input type="button" class="button" value="aussprechen" onclick="aussprechen()"></th>
+			</tr>
+		</table>
+	</div>
+	
+	<script>
+		
+		function aussprechen() {
+			var i = true;
+			var aussprechen = document.getElementById("eingabe").value;
+			document.getElementById("eingabe").value = "";
+			
+			if(aussprechen == "gameesite") {
+				var msg = new SpeechSynthesisUtterance("Ganz Genau! Gameesite ist das beste das jeh het gitz");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			}
+			if(aussprechen == "alex der könig" || aussprechen == "alexander der könig") {
+				var msg = new SpeechSynthesisUtterance("so fing alles an...");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			}
+			if(aussprechen == "hallo") {
+				var msg = new SpeechSynthesisUtterance("Hey Siri!");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			} 
+			if(aussprechen == "hey") {
+				var msg = new SpeechSynthesisUtterance("Hey, day!");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			} 
+			if(aussprechen == "gucci gang") {
+				for(var k = 0; k <= 10; k++) {
+					var msg = new SpeechSynthesisUtterance("gucci gang");
+					window.speechSynthesis.speak(msg);
+				}
+				i = false;
+			} 
+			if(aussprechen == "ok google") {
+				var msg = new SpeechSynthesisUtterance("Ja, was ist los?");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			} 
+			if(aussprechen == "erzähl einen witz") {
+				var msg = new SpeechSynthesisUtterance("Was bekommt ein Kanibale für das Abenessen wenn er zu spät kommt? Die kalte Schulter.");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			} 
+			if(aussprechen == "witz") {
+				var msg = new SpeechSynthesisUtterance("Dein Leben.");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			} 
+			if(aussprechen == "scheisse") {
+				var msg = new SpeechSynthesisUtterance("valentin ist scheisse");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			}
+			if(aussprechen == "früher war alles besser") {
+				var msg = new SpeechSynthesisUtterance("Ok, Boomer!");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			} 
+			if(aussprechen == "android") {
+				var msg = new SpeechSynthesisUtterance("kauf dir Iphone du armer sack!");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			} 
+			if(aussprechen == "") {
+				var msg = new SpeechSynthesisUtterance("Bist du zu dumm um etwas einzugeben. Die heutige Jugend...");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			} 	
+			if(aussprechen == 420) {
+				var msg = new SpeechSynthesisUtterance("Smouk weed everyday!");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			}	
+			if(aussprechen == "axa") {
+				var msg = new SpeechSynthesisUtterance("Besser als die Mobiliar");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			}	
+			if(aussprechen == "penis") {
+				var msg = new SpeechSynthesisUtterance("Penis? Das ist etwas was du nicht hast!");
+				window.speechSynthesis.speak(msg);
+				i = false;
+			}			
+			if(i == true) {
+			var msg = new SpeechSynthesisUtterance(aussprechen);
+			window.speechSynthesis.speak(msg);
+			}
+		}
+	
+	</script>
+	
+</body>
+
+</html>

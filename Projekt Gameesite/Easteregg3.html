@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Easteregg</title>
+<link rel="stylesheet" href = "style_Easteregg.css" >
+</head>
+<body>
+	<div class="block">
+		<div class="titel"> 
+		Eine Welt voller Überraschungen
+		</div>
+		<div class="titel2"> 
+		Du hast den Meme gefunden !!
+		</div><br>
+		<div class="titel3">
+			<th><input type="button" class="button" value="meme!!" id="meme2" onclick="aussprechen()"></th>
+		</div>
+		<div class="titel3mitte text-align="center" style="display:none" id="text"> 
+		Girl: I only date 6 feet guys<br> 
+		</div>
+		<div class="titel3mitte text-align="center" style="display:none" id="text2"> 
+		<br> Me with 2 feet<br> 
+		</div>
+		<img src="2feetmeme.png" style="display:none" id="meme" width="100%">
+	</div>
+	
+	<script>
+		
+		function aussprechen() {
+			document.getElementById("text").style.display = "";
+			document.getElementById("meme2").style.display = "none";
+			var msg = new SpeechSynthesisUtterance("Girl: I only date 6 feet guys");
+			window.speechSynthesis.speak(msg);
+				
+			var timeleft = 3; //Zeit angeben in Sekunden
+				var downloadTimer = setInterval(function(){
+					if(timeleft <= 0){
+						clearInterval(downloadTimer);
+					
+						console.log("Finished");
+						document.getElementById("text2").style.display = "";
+						var msg = new SpeechSynthesisUtterance("Me with 2 feet");
+						window.speechSynthesis.speak(msg);
+						
+						timeleft = 2; //Zeit angeben in Sekunden
+						downloadTimer = setInterval(function(){
+						if(timeleft <= 0){
+							clearInterval(downloadTimer);
+						
+							console.log("Finished");
+							document.getElementById("meme").style.display = "";
+							
+						} else {
+							console.log(timeleft + " seconds remaining");
+						}
+							timeleft -= 1;
+						}, 1000);
+								
+					} else {
+						console.log(timeleft + " seconds remaining");
+					}
+					timeleft -= 1;
+				}, 1000);
+				
+				
+			
+		}
+	
+	</script>
+	
+</body>
+
+</html>
